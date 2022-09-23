@@ -8,67 +8,58 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@499&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/main.css">
-    <title>Pachira Portfolio</title>
+    <link rel="stylesheet" href="../css/main.css">
+    <title>Tu cartera</title>
 </head>
 <body>
-    <header>
+    <header class="portHead">
         <nav class="navbar navbar-expand-lg ">
             <div class="container-fluid">
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
-              <a class="navbar-brand" href="#">PACHIRA</a>
+              <a class="navbar-brand" href="../index.html">PACHIRA</a>
               <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Help</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">About Us</a>
+                      <a class="nav-link active" aria-current="page" href="#">Portfolios</a>
                   </li>
                 </ul>
-                <button class="btn btn-outline-success" type="submit"> <a href="./pages/portfolio.html">Iniciar Sesion</a> </button>
-                <button class="btn btn-success" type="submit">Registrarse</button>
+                <ul class="navbar-nav d-flex">
+                  <li class="nav-item">
+                      <a class="nav-link" href="">sesion</a>
+                  </li>
+                </ul>
               </div>
             </div>
           </nav>
     </header>
-        
-    <main class="container-fluid">
-          <div class="welcome row">
-            <div class="col-lg-3 p-3">
-                
+
+    <main>
+        <div class="mainContainer pl-3 pr-3 ">
+            <div class="row m-3">
+                <div class="col-md-6 col-lg-6 pl-3 pr-3">
+                    <h1>Cartera Personal</h1>
+                    <h2>$34.000</h2>
+                    <ul>
+                        <li>MSFT</li>
+                        <li>AAPL</li>
+                        <li>TESLA</li>
+                    </ul>
+                </div>
+
+                <div class="col-md-6 col-lg-6 pl-3 pr-3">
+                    <img src="../assets/grafico.png" alt="">
+                </div>
+
             </div>
-            
-            <div class=" mainText col-lg-3 p-3">
-                <h1>ADMINISTRA TUS ACTIVOS</h1>
-                <p>
-                  Pachira es la cartera integral que soporta todo tipo de activos
-                </p>
-                <button class="btn btn-outline-success" type="submit">Iniciar Sesion</button>
-                <button class="btn btn-success" type="submit">Registrarse</button>
-            </div>
-            <div class="col-lg-3 p-3">
-                <img class=" secImg col-lg-3" src="./assets/wallet-fold-phone.png" alt="">
-            </div>
-            <div class="headershape1">
-              <img src="./assets/Nuevo proyecto.png" alt="">
-              
-            </div>
-            <div class="headershape2">
-              <img src="./assets/amarillo.png" alt="">
-            </div>
-          </div>
-            
+
+        </div>
     </main>
 
     <footer>
 
     </footer>
-
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 </body>
 </html>

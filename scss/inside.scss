@@ -1,0 +1,25 @@
+.portHead{
+    nav{
+        .container-fluid{
+            margin: 0.5% 10% 0.5% 10%;
+         }
+         
+    }
+}
+
+
+.mainContainer{
+    margin: 0.5% 10% 0.5% 10%;
+    border: 1px solid #ccc;
+    border-radius: 16px;
+
+    div{
+        .row{
+            display: flex;
+            
+        }
+            border: 1px solid #ccc;
+            border-radius: 16px;
+        
+    }
+}

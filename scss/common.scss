@@ -1,0 +1,66 @@
+body{
+    margin: 0;
+    padding: 0;
+    border-radius: border-box;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+
+
+nav{
+    .container-fluid{
+       margin: 0.5% 1% 0.5% 1%;
+    }
+    button{
+        margin: 0px 0.2rem 0px 0.2rem;
+    }
+}
+
+
+.welcome{
+    align-items: self-end;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    .firstImg{
+        padding: 0;
+        margin-top: 2rem;
+        height: 100%;
+    }
+    .secImg{
+        width: 100%;
+
+    }
+    .mainText{
+        margin-bottom: 15rem;
+        h1{
+            font-size: 3rem;
+        }
+    }
+    .headershape1{
+        img{
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: -1;
+            width: 96%;
+            height: 90%;
+        }
+        
+    }
+    .headershape2{
+        img{
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: -1;
+            width: 90%;
+            height: 95%;
+        }
+        
+    }
+}
+
+
+.secondCoso{
+    margin-top: 500px;
+}
