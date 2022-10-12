@@ -13,13 +13,27 @@
     border: 1px solid #ccc;
     border-radius: 16px;
 
+    h2{
+        color: $darkest-green;
+    }
     div{
+        /*
         .row{
             display: flex;
             
         }
             border: 1px solid #ccc;
             border-radius: 16px;
-        
+        */
+
     }
+
+    form{
+        padding: 0.5rem;
+    }
+    input{
+        width: 15rem;
+        padding: 0.5rem;
+    }
+
 }

@@ -40,12 +40,40 @@
             <div class="row m-3">
                 <div class="col-md-6 col-lg-6 pl-3 pr-3">
                     <h1>Cartera Personal</h1>
-                    <h2>$34.000</h2>
-                    <ul>
-                        <li>MSFT</li>
-                        <li>AAPL</li>
-                        <li>TESLA</li>
+                    <h2 id="balance"></h2>
+                    <ul id="asset-list">
+                        <li>MSFT      500</li>
+                        <li>AAPL      300</li>
+                        <li>TESLA     200</li>
                     </ul>
+
+                    <!-- Button trigger modal -->
+                    <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal" >
+                      +
+                    </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Agregar activo:</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                              <form name="asset-adder" action="">
+                                  <input type="text" id="asset-adder-box" placeholder="Ingrese el nombre del Activo">
+                              </form>
+                              <form name="price-adder" action="">
+                                <input type="text" id="price-adder-box" placeholder="Ingrese el valor del Activo">
+                              </form>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-success" id="add-asset" data-bs-dismiss="modal">Añadir</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                 </div>
 
                 <div class="col-md-6 col-lg-6 pl-3 pr-3">

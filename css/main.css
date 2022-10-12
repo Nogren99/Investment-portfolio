@@ -49,8 +49,19 @@ nav button {
   margin: 0.5% 10% 0.5% 10%;
   border: 1px solid #ccc;
   border-radius: 16px; }
+  .mainContainer h2 {
+    color: #2B7A0B; }
   .mainContainer div {
-    border: 1px solid #ccc;
-    border-radius: 16px; }
-    .mainContainer div .row {
-      display: flex; }
+    /*
+        .row{
+            display: flex;
+            
+        }
+            border: 1px solid #ccc;
+            border-radius: 16px;
+        */ }
+  .mainContainer form {
+    padding: 0.5rem; }
+  .mainContainer input {
+    width: 15rem;
+    padding: 0.5rem; }

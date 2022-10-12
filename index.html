@@ -29,10 +29,12 @@
                   </li>
                 </ul>
                 <button class="btn btn-outline-success" type="submit"> <a href="./pages/portfolio.html">Iniciar Sesion</a> </button>
-                <button class="btn btn-success" type="submit">Registrarse</button>
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  Registrarse
+                </button>
               </div>
             </div>
-          </nav>
+        </nav>
     </header>
         
     <main class="container-fluid">
@@ -47,7 +49,33 @@
                   Pachira es la cartera integral que soporta todo tipo de activos
                 </p>
                 <button class="btn btn-outline-success" type="submit">Iniciar Sesion</button>
-                <button class="btn btn-success" type="submit">Registrarse</button>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                  Registrarse
+                </button>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalLabel">Nuevo usuario</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        <form action="">
+                            <input type="text" id="newUser" placeholder="usuario">
+                            <input type="text" id="Pass" placeholder="pass">
+
+                        </form>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button"  id="newUser" class="btn btn-success" data-bs-dismiss="modal">Registrarme</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
             </div>
             <div class="col-lg-3 p-3">
                 <img class=" secImg col-lg-3" src="./assets/wallet-fold-phone.png" alt="">
