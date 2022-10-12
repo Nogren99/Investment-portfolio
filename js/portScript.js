@@ -1,4 +1,4 @@
-class activo{
+class asset{
     constructor(nombre,valor){
         this.nombre=nombre
         this.valor=valor
@@ -14,47 +14,11 @@ class activo{
     }
 }
 
-/* FORMA OBSOLETA DE AGREGAR ACTIVOS MEDIANTE PROMPT
+let asset1 = new asset("MSFT",500)
+let asset2 = new asset("AAPL",300)
+let asset3 = new asset("TESLA",200)
 
-
-function agregarActivo(){
-
-    let nuevoActivo = prompt("Ingrese un nuevo activo")
-    let cant = prompt("ingrese el valor en dolares del activo")
-    
-    while(cant<0)
-        cant = prompt("increse un valor mayor a 0")
-
-    if(activos.find( e => e.nombre === nuevoActivo )){
-        const i = activos.findIndex(e => e.nombre === nuevoActivo)
-        console.log(i)
-        activos[i].agrega(parseInt(cant)) 
-    }else
-        activos.push(new activo(nuevoActivo,cant))
-}
-
-let activos = []  //Array de objetos, cada objeto es un activo que ingresa el usuario
-let ready = false
-
-while(!ready){
-    let res
-
-    agregarActivo()
-    res =  prompt("Desea agregar otro activo? si/no")
-        if(res.toUpperCase()=="NO")
-            ready=true
-
-
-}
-
-//muestra de array de objetos
-for (const act of activos){
-    console.log(act)
-}
-*/
-
-
-//FORMA ACTUAL DE AGREGAR ACTIVOS
+let assets =[asset1,asset2,asset3]
 
 let addAsset =document.getElementById("add-asset")
 addAsset.addEventListener("click",addAssetItem)
@@ -73,12 +37,33 @@ newBalance.innerText="$"+ parseInt( balance)
 
 function addAssetItem(){
 
-    let assetItem = document.createElement("li")
-    assetItem.innerText=inputAsset.value+"\t\t\t"+inputPrice.value
     balance+= parseInt(inputPrice.value)
     newBalance.innerText="$"+parseInt(balance)
+
+    if(assets.find( e => e.nombre === inputAsset.value )){
+        const i = assets.findIndex(e => e.nombre === inputAsset.value)
+        console.log(inputAsset.value+" se encuenta en la posicion: "+i)
+        assets[i].agrega(parseInt(inputPrice.value)) 
+        //for(const act of assets) // test para ver si carga correctamente
+        //    console.log(act.nombre+act.valor)
+
+    }else{
+        assets.push(new asset(inputAsset.value,parseInt(inputPrice.value)))
+        let assetItem = document.createElement("li")
+        assetItem.innerText=inputAsset.value+"\t\t\t"+inputPrice.value
+        assetList.append(assetItem)
+    }
+          
     inputAsset.value=""
     inputPrice.value=""
-    assetList.append(assetItem)
 
 }
+
+
+
+for (const act of assets){
+    let assetItem = document.createElement("li")
+    assetItem.innerHTML=act.nombre+"\t\t\t"+act.valor
+    assetList.append(assetItem)
+}
+

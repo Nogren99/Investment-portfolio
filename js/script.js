@@ -24,6 +24,9 @@ function verificacion(dato,user){
 let users= []
 
 let newUser = document.getElementById("newUser")
+newUser.addEventListener("click",(e)=>{
+    e.preventDefault()
+})
 newUser.addEventListener("click",register)
 
 let inputUser = document.getElementById("newUser")
@@ -40,7 +43,8 @@ function register(){
         inputPass.value=""
     }
 
-    users.push(new user(inputUser,inputPass))
+    users.push(new user(inputUser.value,inputPass.value))
+    console.log(user)
 
 }
 
