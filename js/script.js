@@ -8,11 +8,11 @@ class user{
 function verificacion(dato,user){
 
     if ( dato.length>16 || dato.length<8 ){
-        prompt("Ingrese un nombre entre 8 y 16 caracteres")
+        alert("Ingrese un nombre entre 8 y 16 caracteres")
         return false
     }else
         if(users.some(e => e.user == dato) && user==1){
-            prompt("Nombre de usuario ya existente")
+            alert("Nombre de usuario ya existente")
             return false
         }else
             return true      
