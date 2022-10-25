@@ -49,6 +49,8 @@ function addAssetItem(){
         assets[i].agrega(parseInt(inputPrice.value)) 
         for(const act of assets) // test para ver si carga correctamente
             console.log(act.nombre+act.valor)
+        location.reload();
+        
 
     }else{
         assets.push(new asset(inputAsset.value,parseInt(inputPrice.value)))
@@ -58,6 +60,8 @@ function addAssetItem(){
     }
     localStorage.setItem("list",JSON.stringify(assets))
     console.log("lo cargue")
+    
+    
           
     inputAsset.value=""
     inputPrice.value=""
@@ -118,7 +122,8 @@ function emptyList(){
     
     assetList.innerHTML=""
     assets =[]
-    newBalance.innerText="$"+ parseInt( 0)
+    balance=0
+    newBalance.innerText="$"+ parseInt(balance)
     saveList();
 }
 
