@@ -60,7 +60,13 @@ function addAssetItem(){
     }
     localStorage.setItem("list",JSON.stringify(assets))
     console.log("lo cargue")
-    
+    Toastify({
+        text: `Activo ${inputAsset.value} añadido correctamente!`,
+        className: "info",
+        style: {
+          background: "linear-gradient(to right, #00b09b, #96c93d)",
+        }
+      }).showToast();
     
           
     inputAsset.value=""
