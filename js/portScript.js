@@ -126,11 +126,27 @@ emptyButton.addEventListener("click",emptyList)
 
 function emptyList(){
     
-    assetList.innerHTML=""
-    assets =[]
-    balance=0
-    newBalance.innerText="$"+ parseInt(balance)
-    saveList();
+    Swal.fire({
+        title: 'Seguro que quieres eliminar esta cartera?',
+        showDenyButton: true,
+        
+        confirmButtonText: 'Eliminar',
+        denyButtonText: `Cancelar`,
+        confirmButtonColor: '#d33',
+        denyButtonColor: 'grey',
+      }).then((result) => {
+        if (result.isConfirmed) {
+            assetList.innerHTML=""
+            assets =[]
+            balance=0
+            newBalance.innerText="$"+ parseInt(balance)
+            saveList();
+            Swal.fire('Eliminado!', '', 'success')
+        } else if (result.isDenied) {
+            Swal.fire('No se eliminó la cartera', '', 'info')
+        }
+      })
+    
 }
 
 loadList()
