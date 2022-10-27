@@ -45,17 +45,22 @@ function addAssetItem(){
 
     if(assets.find( e => e.nombre === inputAsset.value )){
         const i = assets.findIndex(e => e.nombre === inputAsset.value)
-        console.log(inputAsset.value+" se encuentra en la posicion: "+i)
         assets[i].agrega(parseInt(inputPrice.value)) 
-        for(const act of assets) // test para ver si carga correctamente
-            console.log(act.nombre+act.valor)
         location.reload();
-        
-
     }else{
         assets.push(new asset(inputAsset.value,parseInt(inputPrice.value)))
         let assetItem = document.createElement("li")
-        assetItem.innerText=inputAsset.value+"\t\t\t"+inputPrice.value
+
+
+        let buttonDelete = document.createElement('i')
+        buttonDelete.classList.add('bi','bi-trash')
+        
+        assetItem.innerText=inputAsset.value+"\t\t\t"+inputPrice.value+"\t\t\t\t\t\t\t\t\t"
+
+
+        buttonDelete.addEventListener("click",deleteAsset)
+        
+        assetItem.append(buttonDelete)
         assetList.append(assetItem)
     }
     localStorage.setItem("list",JSON.stringify(assets))
@@ -75,20 +80,6 @@ function addAssetItem(){
 }
 
 
-/*
-for (const act of assets){
-
-    console.log("activos en array assets:")
-    console.log(act.nombre+" "+act.valor)
-
-
-    let assetItem = document.createElement("li")
-    assetItem.innerHTML=act.nombre+"\t\t\t"+act.valor
-    assetList.append(assetItem)
-
-
-}
-*/
 
 function saveList(){
     localStorage.setItem("list",JSON.stringify(assets))
@@ -109,13 +100,43 @@ function loadList(){
 
         assets.push(new asset(list[i].nombre,parseInt(list[i].valor)))
         let assetItem = document.createElement("li")
+        let buttonDelete = document.createElement('i')
+        buttonDelete.classList.add('bi','bi-trash')
         assetItem.innerText=list[i].nombre+"\t\t\t"+list[i].valor
+        buttonDelete.addEventListener("click",deleteAsset)
+        assetItem.append(buttonDelete)
         assetList.append(assetItem)
         
         localStorage.setItem("list",JSON.stringify(assets))
             
     }
 
+}
+
+//eliminar activo
+
+function deleteAsset(){
+    Swal.fire({
+        title: '¿Seguro que quieres eliminar este activo?',
+        showDenyButton: true,
+        
+        confirmButtonText: 'Eliminar',
+        denyButtonText: `Cancelar`,
+        confirmButtonColor: '#d33',
+        denyButtonColor: 'grey',
+      }).then((result) => {
+        if (result.isConfirmed) {
+            /*
+            const i = assets.findIndex(e => e.nombre === this.nombre)
+            assets[i].remove();
+            saveList();
+            
+            Swal.fire('¡Activo Eliminado!', '', 'success')
+            */
+        } else if (result.isDenied) {
+            Swal.fire('No se eliminó el activo', '', 'info')
+        }
+      })
 }
 
 //eliminar portfolio

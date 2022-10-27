@@ -16,6 +16,12 @@
     h2{
         color: $darkest-green;
     }
+    li{
+        &:hover {
+            background-color: rgba(91, 179, 24,0.2);
+            border-radius: 4px;
+        }
+    }
     div{
         /*
         .row{

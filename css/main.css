@@ -51,6 +51,9 @@ nav button {
   border-radius: 16px; }
   .mainContainer h2 {
     color: #2B7A0B; }
+  .mainContainer li:hover {
+    background-color: rgba(91, 179, 24, 0.2);
+    border-radius: 4px; }
   .mainContainer div {
     /*
         .row{
