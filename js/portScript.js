@@ -23,6 +23,8 @@ let assets =[asset1,asset2,asset3]
 */
 
 let assets =[]
+let nombres=[]
+let valores=[]
 let addAsset =document.getElementById("add-asset")
 addAsset.addEventListener("click",addAssetItem)
 
@@ -54,16 +56,15 @@ function addAssetItem(){
 
         let buttonDelete = document.createElement('i')
         buttonDelete.classList.add('bi','bi-trash')
-        
         assetItem.innerText=inputAsset.value+"\t\t\t"+inputPrice.value+"\t\t\t\t\t\t\t\t\t"
-
-
         buttonDelete.addEventListener("click",deleteAsset)
-        
+        actualizaChart()
+        myChart.update()
         assetItem.append(buttonDelete)
         assetList.append(assetItem)
     }
     localStorage.setItem("list",JSON.stringify(assets))
+    
     console.log("lo cargue")
     Toastify({
         text: `Activo ${inputAsset.value} añadido correctamente!`,
@@ -73,7 +74,9 @@ function addAssetItem(){
         }
       }).showToast();
     
-          
+    //myChart.data.datasets[0].data.push(inputPrice.value)
+    
+
     inputAsset.value=""
     inputPrice.value=""
 
@@ -108,6 +111,7 @@ function loadList(){
         assetList.append(assetItem)
         
         localStorage.setItem("list",JSON.stringify(assets))
+        
             
     }
 
@@ -161,13 +165,69 @@ function emptyList(){
             assets =[]
             balance=0
             newBalance.innerText="$"+ parseInt(balance)
+            
+            actualizaChart()
+            myChart.update()
             saveList();
             Swal.fire('Eliminado!', '', 'success')
         } else if (result.isDenied) {
             Swal.fire('No se eliminó la cartera', '', 'info')
         }
       })
+
     
 }
 
 loadList()
+
+
+const ctx = document.getElementById('assetChart').getContext('2d');
+
+function actualizaChart(){
+    
+    for (i=0; i<assets.length;i++){
+        nombres[i]=assets[i].nombre;
+    }
+
+    for (i=0; i<assets.length;i++){
+        valores[i]=assets[i].valor;
+    }
+
+     
+}
+actualizaChart()
+
+const myChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {
+        labels: nombres,
+        datasets: [{
+            label: '# of Votes',
+            data: valores,
+            backgroundColor: [
+                'rgb(255, 99, 132)',
+                'rgb(54, 162, 235)',
+                'rgb(255, 206, 86)',
+                'rgb(75, 192, 192)',
+                'rgb(153, 102, 255)',
+                'rgb(255, 159, 64)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    }
+    
+
+});
+
+
+
+
+
