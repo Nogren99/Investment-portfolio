@@ -13,26 +13,24 @@
     border: 1px solid #ccc;
     border-radius: 16px;
 
+    h1{
+        font-size:2.8rem;
+        font-weight: 400;
+    }
     h2{
         color: $darkest-green;
+        font-size:4rem;
+        font-weight: 500;
     }
     li{
+        font-size:1.4rem;
         &:hover {
             background-color: rgba(91, 179, 24,0.2);
             border-radius: 4px;
         }
+        
     }
-    div{
-        /*
-        .row{
-            display: flex;
-            
-        }
-            border: 1px solid #ccc;
-            border-radius: 16px;
-        */
 
-    }
 
     form{
         padding: 0.5rem;
@@ -41,5 +39,67 @@
         width: 15rem;
         padding: 0.5rem;
     }
+
+    .conversor-imagen{
+        width: 150px;
+    }
+    
+    .convertidor{
+        padding: 4rem ;
+        margin: 1rem;
+        border: 1px solid #dedede;
+        border-radius: 16px;
+        display: flex;
+        align-items: center;
+
+        h4{
+            text-align: center;
+        }
+        h5{
+            text-align: center;
+        }
+        .moneda{
+            padding: 4rem 10rem 4rem 10rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+    
+            select{
+                padding: 10px 20px 10px 10px;
+                size: 0.3em;
+                border: 1px solid #dedede;
+                font-size: 16px;
+                -moz-appearance: none;
+                -webkit-appearance: none;
+                appearance: none;
+            }
+    
+            input {
+                border: 0;
+                font-size: 30px;
+                text-align: right;
+            }
+        }
+        
+        
+        
+        .taza-cambio-container{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            button{
+                padding: 0.5rem 4rem;
+            }
+        }
+    
+        .cambio{
+            color: $darkest-green;
+            font-size: 1.8rem;
+            text-align: center;
+            font-weight: 400;
+        }
+    }
+    
+    
 
 }

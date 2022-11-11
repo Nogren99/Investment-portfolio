@@ -14,26 +14,16 @@ class asset{
     }
 }
 
-/*
-let asset1 = new asset("MSFT",500)
-let asset2 = new asset("AAPL",300)
-let asset3 = new asset("TESLA",200)
-
-let assets =[asset1,asset2,asset3]
-*/
-
 let assets =[]
 let nombres=[]
 let valores=[]
+
 let addAsset =document.getElementById("add-asset")
 addAsset.addEventListener("click",addAssetItem)
 
 let inputAsset = document.getElementById("asset-adder-box")
 let inputPrice = document.getElementById("price-adder-box")
-
-
 let assetList= document.getElementById("asset-list")
-
 
 let balance=0;
 let newBalance=document.getElementById("balance")
@@ -52,8 +42,6 @@ function addAssetItem(){
     }else{
         assets.push(new asset(inputAsset.value,parseInt(inputPrice.value)))
         let assetItem = document.createElement("li")
-
-
         let buttonDelete = document.createElement('i')
         buttonDelete.classList.add('bi','bi-trash')
         assetItem.innerText=inputAsset.value+"\t\t\t"+inputPrice.value+"\t\t\t\t\t\t\t\t\t"
@@ -64,25 +52,19 @@ function addAssetItem(){
         assetList.append(assetItem)
     }
     localStorage.setItem("list",JSON.stringify(assets))
-    
-    console.log("lo cargue")
     Toastify({
         text: `Activo ${inputAsset.value} añadido correctamente!`,
         className: "info",
         style: {
           background: "linear-gradient(to right, #00b09b, #96c93d)",
         }
-      }).showToast();
-    
-    //myChart.data.datasets[0].data.push(inputPrice.value)
-    
+    }).showToast();
 
     inputAsset.value=""
     inputPrice.value=""
-
 }
 
-
+//guardar porfolio
 
 function saveList(){
     localStorage.setItem("list",JSON.stringify(assets))
@@ -99,8 +81,6 @@ function loadList(){
         console.log(list[i].valor)
         balance+= parseInt(list[i].valor)
         newBalance.innerText="$"+parseInt(balance)
-
-
         assets.push(new asset(list[i].nombre,parseInt(list[i].valor)))
         let assetItem = document.createElement("li")
         let buttonDelete = document.createElement('i')
@@ -108,13 +88,10 @@ function loadList(){
         assetItem.innerText=list[i].nombre+"\t\t\t"+list[i].valor
         buttonDelete.addEventListener("click",deleteAsset)
         assetItem.append(buttonDelete)
-        assetList.append(assetItem)
-        
+        assetList.append(assetItem)       
         localStorage.setItem("list",JSON.stringify(assets))
-        
             
     }
-
 }
 
 //eliminar activo
@@ -143,11 +120,14 @@ function deleteAsset(){
       })
 }
 
-//eliminar portfolio
 
+//eliminar portfolio
 
 let emptyButton = document.getElementById("delete-portfolio")
 emptyButton.addEventListener("click",emptyList)
+
+
+//manejo de grafico
 
 function emptyList(){
     
@@ -195,6 +175,7 @@ function actualizaChart(){
 
      
 }
+
 actualizaChart()
 
 const myChart = new Chart(ctx, {
@@ -229,5 +210,45 @@ const myChart = new Chart(ctx, {
 
 
 
+//Consumo de api para conversor de moneda
+
+const monedaEl_one = document.getElementById('moneda-uno');
+const monedaEl_two = document.getElementById('moneda-dos');
+const cantidadEl_one = document.getElementById('cantidad-uno');
+const cantidadEl_two = document.getElementById('cantidad-dos');
+const cambioEl = document.getElementById('cambio');
+const tazaEl = document.getElementById('taza');
 
 
+function calculate(){
+    const moneda_one = monedaEl_one.value;
+    const moneda_two = monedaEl_two.value;
+
+   fetch(`https://api.exchangerate-api.com/v4/latest/${moneda_one}`)
+   .then(res => res.json() )
+   .then(data => {
+       const taza = data.rates[moneda_two];
+       
+       cambioEl.innerText = `1 ${moneda_one} = ${taza} ${moneda_two}`;
+
+       cantidadEl_two.value = (cantidadEl_one.value * taza).toFixed(2);
+
+    } );
+    
+}
+
+
+monedaEl_one.addEventListener('change', calculate);
+cantidadEl_one.addEventListener('input', calculate);
+monedaEl_two.addEventListener('change', calculate);
+cantidadEl_two.addEventListener('input', calculate);
+
+taza.addEventListener('click', () =>{
+    const temp = monedaEl_one.value;
+    monedaEl_one.value = monedaEl_two.value;
+    monedaEl_two.value = temp;
+    calculate();
+} );
+
+
+calculate();

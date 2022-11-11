@@ -49,22 +49,61 @@ nav button {
   margin: 0.5% 10% 0.5% 10%;
   border: 1px solid #ccc;
   border-radius: 16px; }
+  .mainContainer h1 {
+    font-size: 2.8rem;
+    font-weight: 400; }
   .mainContainer h2 {
-    color: #2B7A0B; }
-  .mainContainer li:hover {
-    background-color: rgba(91, 179, 24, 0.2);
-    border-radius: 4px; }
-  .mainContainer div {
-    /*
-        .row{
-            display: flex;
-            
-        }
-            border: 1px solid #ccc;
-            border-radius: 16px;
-        */ }
+    color: #2B7A0B;
+    font-size: 4rem;
+    font-weight: 500; }
+  .mainContainer li {
+    font-size: 1.4rem; }
+    .mainContainer li:hover {
+      background-color: rgba(91, 179, 24, 0.2);
+      border-radius: 4px; }
   .mainContainer form {
     padding: 0.5rem; }
   .mainContainer input {
     width: 15rem;
     padding: 0.5rem; }
+  .mainContainer .conversor-imagen {
+    width: 150px; }
+  .mainContainer .convertidor {
+    padding: 4rem;
+    margin: 1rem;
+    border: 1px solid #dedede;
+    border-radius: 16px;
+    display: flex;
+    align-items: center; }
+    .mainContainer .convertidor h4 {
+      text-align: center; }
+    .mainContainer .convertidor h5 {
+      text-align: center; }
+    .mainContainer .convertidor .moneda {
+      padding: 4rem 10rem 4rem 10rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between; }
+      .mainContainer .convertidor .moneda select {
+        padding: 10px 20px 10px 10px;
+        size: 0.3em;
+        border: 1px solid #dedede;
+        font-size: 16px;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        appearance: none; }
+      .mainContainer .convertidor .moneda input {
+        border: 0;
+        font-size: 30px;
+        text-align: right; }
+    .mainContainer .convertidor .taza-cambio-container {
+      display: flex;
+      align-items: center;
+      justify-content: center; }
+      .mainContainer .convertidor .taza-cambio-container button {
+        padding: 0.5rem 4rem; }
+    .mainContainer .convertidor .cambio {
+      color: #2B7A0B;
+      font-size: 1.8rem;
+      text-align: center;
+      font-weight: 400; }
